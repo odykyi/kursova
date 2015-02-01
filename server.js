@@ -1,4 +1,4 @@
-var express = require('express');
+var express  = require('express');
 var mongoose = require('mongoose');
 
 var http = require('http');
@@ -10,7 +10,6 @@ app.set('view options', {layout: true});
 app.set('layout', 'layout');
 app.enable('view cache');
 app.set('port', process.env.PORT || 3000);
-//app.set('www', __dirname + '/www');
 app.set('view engine', 'html');
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -21,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'www')));
 
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
-    mongoose.connect('mongodb://localhost/kursova');
+    mongoose.connect('mongodb://localhost/clothing');
 }
 
 var MySignIn = new mongoose.Schema({
@@ -47,11 +46,6 @@ app.get('/users', function(req, res){
     });
 });
 
-app.get('/users', function(req, res){
-    mongoose.model('users').find(function(err, users){
-        res.send(users);
-    });
-});
 var index  = "../www/index"
 app.get('/', function(req, res){
     res.render(index, {title: 'wer'})

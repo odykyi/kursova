@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="login/login.css"/>
-    <script  src="bower_components/jquery/dist/jquery.js"></script>
-    <script  src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="login/login.js"></script>
-
+    <link rel="stylesheet" href="css/login.css"/>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="js/login.js"></script>
     <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 </head>
 <body>
@@ -22,17 +21,45 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form" class="form-signin">
-                        <fieldset>
-                            <label class="panel-login">
-                                <div class="login_result"></div>
-                            </label>
-                            <input class="form-control" placeholder="Username" id="username" type="text">
-                            <input class="form-control" placeholder="Password" id="password" type="password">
-                            <br></br>
-                            <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Login »">
-                        </fieldset>
-                    </form>
+
+                    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#register" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Реєстрація</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#login" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Вхід</a>
+                            </li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="register" aria-labelledby="home-tab">
+                                <form action="/register" method="POST" role="form" class="form-signin">
+                                    <fieldset>
+                                        <label class="panel-login">
+                                            <div class="login_result"></div>
+                                        </label>
+                                        <input class="form-control" placeholder="Username" name="name"   type="text">
+                                        <input class="form-control" placeholder="Password" name="pass"  type="password">
+                                        <br></br>
+                                        <input class="btn btn-lg btn-success btn-block" type="submit" value="РЕЄСТРАЦІЯ »">
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="login" aria-labelledby="profile-tab">
+                                <form action="/login" method="POST" role="form" class="form-signin">
+                                    <fieldset>
+                                        <label class="panel-login">
+                                            <div class="login_result"></div>
+                                        </label>
+                                        <input class="form-control" placeholder="Username"  type="text">
+                                        <input class="form-control" placeholder="Password"  type="password">
+                                        <br></br>
+                                        <input class="btn btn-lg btn-success btn-block" type="submit" value="ВХІД »">
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
