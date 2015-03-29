@@ -20,25 +20,34 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'www')));
 
-var sql     = require('mssql');
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+    host     : '127.0.0.1',
+    user     : 'root',
+    password : '',
+    database : 'eCommerce'
+});
+connection.connect();
+var users;
 
-var config = {
-    server: 'ZAZA'+ '\"' + 'DEV01',
-    user:     'sa',
-    password: '11111111'
-};
+connection.query('SELECT * from users', function(err, rows, fields) {
+    if (!err) {
+        console.log('The solution is: ', rows);
+        users = rows;
+    }
+    else{
+        console.log('Error while performing Query.');
 
-sql.connect(config, function(err) {
-    var request = new sql.Request();
-    request.query("select * from table", function(err, recordset) {
-        console.log(recordset);
-        console.log(err);
-        console.log(config);
-
-    });
+    }
 });
 
+connection.end();
 
+
+var index  = "../www/index";
+app.get('/', function(req, res){
+    res.render(index, {data: users})
+});
 
 //app.post('/register', function(req, res){
 //});
@@ -47,6 +56,7 @@ sql.connect(config, function(err) {
 //app.post('/login', function(req, res){
 //})
 //app.get('/users', function(req, res){
+//
 //});
 //app.get('/', function(req, res){
 //    res.render(index, {title: 'wer'})
