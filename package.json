@@ -9,6 +9,6 @@
         "express": "3.2.6",
         "hogan-express": "*",
         "bower": "~0.9.2",
-        "mongoose": "*"
+        "mysql":"*"
     }
 }
