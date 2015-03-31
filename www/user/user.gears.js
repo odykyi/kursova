@@ -1,0 +1,5 @@
+var User = {
+    showAllUsers: function(){
+
+    }
+};

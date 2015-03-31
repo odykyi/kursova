@@ -1,9 +1,8 @@
 var express  = require('express');
-//var mongoose = require('mongoose');
 var register = require('./server/register/register');
-
 var http = require('http');
 var path = require('path');
+var mysql = require('mysql');
 
 var app = express();
 
@@ -19,8 +18,6 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'www')));
-
-var mysql      = require('mysql');
 var connection = mysql.createConnection({
     host     : '127.0.0.1',
     user     : 'root',
@@ -28,39 +25,23 @@ var connection = mysql.createConnection({
     database : 'eCommerce'
 });
 connection.connect();
-var users;
-
+var allUsers;
 connection.query('SELECT * from users', function(err, rows, fields) {
     if (!err) {
         console.log('The solution is: ', rows);
-        users = rows;
+        allUsers = rows;
     }
     else{
         console.log('Error while performing Query.');
-
     }
 });
-
 connection.end();
-
-
-var index  = "../www/index";
-app.get('/', function(req, res){
-    res.render(index, {data: users})
+var user  = "../www/user/user";
+app.get('/showAllUsers', function(req, res){
+    //users = JSON.stringify(users).replace(/["']/g, "").toJSON();
+    allUsers = JSON.stringify(allUsers);
+    res.render(user, {allUsers: allUsers})
 });
-
-//app.post('/register', function(req, res){
-//});
-//app.get('/admin', function(req, res){
-//})
-//app.post('/login', function(req, res){
-//})
-//app.get('/users', function(req, res){
-//
-//});
-//app.get('/', function(req, res){
-//    res.render(index, {title: 'wer'})
-//})
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
