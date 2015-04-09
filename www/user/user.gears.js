@@ -1,5 +1,0 @@
-var User = {
-    showAllUsers: function(){
-
-    }
-};

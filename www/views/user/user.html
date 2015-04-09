@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>data</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/jquery.jsontable/jquery.jsontable.js"></script>
+    <script src="../bower_components/mustache/mustache.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/views/user/user.gears.js"></script>
+    <script src="/views/user/user.behaviors.js"></script>
+
+
+    <style>
+        table{
+            margin: 50px;
+            width: 1280px;
+        }
+    </style>
+</head>
+<body>
+<!--<script>-->
+    <!--$( document ).ready(function() {-->
+        <!--var val = $("#data").val();-->
+        <!--var datas = JSON.parse( val );-->
+        <!--$.jsontotable(datas, { id: '#jsontotable', className: 'table table-hover table-bordered' });-->
+    <!--});-->
+<!--</script>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h1>Покупці</h1>
+            </div>
+
+
+
+
+
+            <form class="form-inline">
+                <div class="form-group">
+                    <label class="sr-only" for="exampleInputEmail3">Країна покупця</label>
+                    <select class="form-control" id="countryUser">
+                    </select>                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="exampleInputPassword3">Кількість замовлень</label>
+                    <select class="form-control" id="countOrder">
+                    </select>
+                </div>
+
+                <button type="button" class="btn btn-default">Sign in</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
