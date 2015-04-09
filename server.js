@@ -1,9 +1,8 @@
 var express  = require('express');
-var register = require('./server/register/register');
 var http = require('http');
 var path = require('path');
-var mysql = require('mysql');
-
+//var mysql = require('mysql');
+var routes = require('./server/routes/routes');
 var app = express();
 
 app.engine('html', require('hogan-express'));
@@ -20,12 +19,12 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'www')));
 
 var allUsers;
-var connection = mysql.createConnection({
-    host     : '127.0.0.1',
-    user     : 'root',
-    password : '',
-    database : 'eCommerce'
-});
+//var connection = mysql.createConnection({
+//    host     : '127.0.0.1',
+//    user     : 'root',
+//    password : '',
+//    database : 'eCommerce'
+//});
 //connection.connect();
 //
 //connection.query('SELECT * from users', function(err, rows, fields) {
@@ -40,9 +39,8 @@ var connection = mysql.createConnection({
 //connection.end();
 
 
-var query1require = require('./server/query/query1');
-query1require.query1.requestHtml(app,connection);
-
+//var query1require = require('./server/query/query1');
+//query1require.query1.requestHtml(app,connection);
 
 
 
@@ -54,7 +52,8 @@ app.get('/', function(req, res){
     res.render(index);
 });
 
-
+//routes list:
+routes.initialize(app);
 //var user  = "../www/user/user";
 //app.get('/showAllUsers', function(req, res){
 //    allUsers = JSON.stringify(allUsers);

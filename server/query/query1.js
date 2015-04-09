@@ -2,7 +2,7 @@ exports.query1 = {
     requestHtml: function(app, connection) {
         var query1selectdata;
         var query1path  = "../www/query/query1";
-        app.get('/query1', function(req, res){
+        app.get('/api/query1', function(req, res){
             connection.connect();
             var connectionQuery = 'SELECT * from users';
             connection.query(connectionQuery, function(err, rows, fields) {

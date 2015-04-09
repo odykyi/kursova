@@ -3,9 +3,9 @@ function Query1 () {
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/query1",
+            url: "/api/category",
             complete: function(data){
-                data = data.responseText;
+                data = data.responseJSON;
                 data = JSON.parse(data);
                 $.get('/js/templates/selectRenderHtml.html', function(template) {
                     var rendered = Mustache.render(template, data);
