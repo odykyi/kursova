@@ -1,3 +1,8 @@
+@import "loader.css";
+@import '/bower_components/formstone/src/less/dropdown.less';
+
+@fs-component-variable: #fff;
+
 
 body {
     background-color: grey;
@@ -6,4 +11,5 @@ body {
 
 .buttonIndex a{
     width: 100%;
+    margin: 2%;
 }

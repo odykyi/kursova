@@ -14,6 +14,7 @@ function User () {
             }
         })
     }
+
     this.showAllUserCountries = function (){
         var that = this;
         $.ajax({
@@ -23,10 +24,13 @@ function User () {
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
-                    $.get('/templates/userTemp1.html', function(template) {
-                        var rendered = Mustache.render(template, data);
-                        $('select').append(rendered)
-                    });
+                    var template = "{{#.}}" +
+                        "<option>{{країнаПокупця}}</option>" +
+                        "{{/.}}";
+//                  $.get('/templates/userTemp1.html', function(template) {
+                    var rendered = Mustache.render(template, data);
+                    $('#countryUser').append(rendered)
+//                  });
                 }
             }
         });

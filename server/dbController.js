@@ -5,25 +5,44 @@ var connection = mysql.createConnection({
     password : '',
     database : 'eCommerce'
 });
-module.exports.dbController = function(req, res, connectionQuery) {
-    var query1selectdata;
+
+module.exports.dbInitialize = function() {
     connection.connect(function(err) {
         if (err) {
-            console.error('error connecting: ' + err.stack);
+            console.error('error connection.connect: ' + err.stack);
             return;
+        } else{
+            console.log('connection.connect ' + connection.threadId);
         }
-        console.log('connected as id ' + connection.threadId);
-    });
-    connection.query(connectionQuery, function(err, rows, fields) {
-        if (!err) {
-            query1selectdata = rows;
-            console.log(query1selectdata);
-            var dataquery1 = JSON.stringify(query1selectdata);
-            res.json(dataquery1);
-            res.end()
-        } else{ console.log('Error while performing DB Query.'); }
-    });
-    connection.end(function(err) {
-        console.log(err)
     });
 }
+
+module.exports.dbQuery = function(req,res,connectionQuery) {
+    try{
+        var that = this;
+        that.dbInitialize();
+    } catch(e){
+        console.log("Error dbInitialize - " + e)
+    }
+    var result;
+    connection.query(connectionQuery, function(err, rows, fields) {
+        if (!err) {
+            if(rows.length != 0 ){
+                result = JSON.stringify(rows);
+            } else{
+                result = JSON.stringify([{'empty':'Даних не знайдено'}]);
+            }
+            res.json(result);
+            res.end();
+            return result;
+        } else{
+            console.error(connectionQuery);
+            console.error('err connection.query DB Query.');
+        }
+    });
+//    connection.end(function(err) {
+//        console.log("connection.end ERROR" + err)
+//    });
+}
+
+

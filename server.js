@@ -1,7 +1,6 @@
 var express  = require('express');
 var http = require('http');
 var path = require('path');
-//var mysql = require('mysql');
 var routes = require('./server/routes');
 var app = express();
 
@@ -17,6 +16,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'www')));
+app.use('/bower_components',express.static(path.join(__dirname, 'bower_components')));
 
 //var connection = mysql.createConnection({
 //    host     : '127.0.0.1',
