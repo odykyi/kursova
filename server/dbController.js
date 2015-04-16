@@ -5,44 +5,22 @@ var connection = mysql.createConnection({
     password : '',
     database : 'eCommerce'
 });
-
-module.exports.dbInitialize = function() {
-    connection.connect(function(err) {
-        if (err) {
-            console.error('error connection.connect: ' + err.stack);
-            return;
-        } else{
-            console.log('connection.connect ' + connection.threadId);
-        }
-    });
-}
-
-module.exports.dbQuery = function(req,res,connectionQuery) {
-    try{
-        var that = this;
-        that.dbInitialize();
-    } catch(e){
-        console.log("Error dbInitialize - " + e)
-    }
-    var result;
+connection.connect();
+module.exports.dbQuery = function(connectionQuery, callback) {
     connection.query(connectionQuery, function(err, rows, fields) {
         if (!err) {
             if(rows.length != 0 ){
-                result = JSON.stringify(rows);
+                var data = JSON.stringify(rows);
+                callback(data);
             } else{
-                result = JSON.stringify([{'empty':'Даних не знайдено'}]);
+                var data = JSON.stringify([{'empty':'Ваш запит не дав результатів.'}]);
+                callback(data);
             }
-            res.json(result);
-            res.end();
-            return result;
         } else{
             console.error(connectionQuery);
             console.error('err connection.query DB Query.');
         }
     });
-//    connection.end(function(err) {
-//        console.log("connection.end ERROR" + err)
-//    });
 }
 
 
