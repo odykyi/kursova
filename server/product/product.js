@@ -2,7 +2,7 @@
 var dbController = require('../dbController');
 module.exports = {
     index: function(req, res) {
-        var userView  = "../www/views/product/product";
+        var userView  = "../www/views/query/product/product";
         res.render(userView);
     },
     result: function(req, res) {
