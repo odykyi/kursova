@@ -1,21 +1,30 @@
 function Product () {
     this.showProductResult = function (){
         var that = this;
-        $("#jsontotable").find("table").remove()
+//        $("#jsontotable").find("table").remove();
         var data = {
-            ProductSubcategories: $('#ProductSubcategories').val(),
+            ProductCategories: $('#ProductCategories').val(),
             ProductСolors: $('#ProductСolors').val()
         };
-        console.log(data)
+
         $.ajax({
             method: "POST",
-            url: "/product/result",
+            url: "product/result",
             data: data,
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
-                    $.jsontotable(data, { id: '#jsontotable', className: 'table table-hover table-bordered' });
+                    console.log(data);
+
+
+                    $("#jsontotable").dynatable({
+                        dataset: {
+                            records: data
+                        }
+                    });
+
+//                    $.jsontotable(data, { id: '#', className: 'table table-hover table-bordered' });
                 }
             },
             error: function (data){
@@ -23,20 +32,20 @@ function Product () {
             }
         });
     }
-    this.showAllProductSubcategories = function (){
+    this.showAllProductCategories = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/product/subcategory",
+            url: "/product/category",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{підкатегоріяТовару}}</option>" +
+                        "<option>{{категорія товару}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#ProductSubcategories').append(rendered)
+                    $('#ProductCategories').append(rendered);
                 }
             }
         });
@@ -51,16 +60,12 @@ function Product () {
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{колірТовару}}</option>" +
+                        "<option>{{колір товару}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#ProductСolors').append(rendered)
+                    $('#ProductСolors').append(rendered);
                 }
             }
         });
     }
-
 }
-
-
-

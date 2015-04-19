@@ -1,4 +1,3 @@
-//var models = require('./categoryDB');
 var dbController = require('../dbController');
 module.exports = {
     index: function(req, res) {
@@ -6,32 +5,32 @@ module.exports = {
         res.render(userView);
     },
     result: function(req, res) {
-        var ProductSubcategories = req.body.ProductSubcategories;
+        var ProductCategories = req.body.ProductCategories;
         var ProductСolors = req.body.ProductСolors;
-        var connectionQuery = "SELECT DISTINCT product_id," +
-            "  `кодТовару` ,                  " +
-            "  `назваТовару`,                 " +
-            "  `розмірТовару`   ,             " +
-            "  `вартістьТовару`,              " +
-            "  `колірТовару` ,                " +
-            "  `сезонТовару` ,                " +
-            "  `кількістьПроданихОдиницьТовару`, " +
-            "  `підкатегоріяТовару`              " +
-            "  FROM products                     " +
-            "  WHERE `колірТовару` = '" + ProductСolors + "'" +
-            "  AND `підкатегоріяТовару` = '" + ProductSubcategories + "'";
+        var connectionQuery = "SELECT DISTINCT `код товару`," +
+            "  `назва товару`,                 " +
+            "  `розмір товару` ,               " +
+            "  `вартість товару`,              " +
+            "  `колір товару` ,                " +
+            "  `сезон товару` ,                " +
+            "  `кількість проданих одиниць товару`, " +
+            "  `категорія товару`                   " +
+            "  FROM products                        " +
+            "  WHERE `колір товару` = '" + ProductСolors + "'" +
+            "  AND `категорія товару` = '" + ProductCategories + "'";
+        dbController.dbQuery(connectionQuery, function (data) {
+            res.json(data);
+            console.log(data);
+        });
+    },
+    category: function(req, res) {
+        var connectionQuery = 'SELECT DISTINCT `категорія товару` FROM products';
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });
     },
-    subcategory: function(req, res) {
-        var connectionQuery = 'SELECT `підкатегоріяТовару` FROM products';
-        dbController.dbQuery(connectionQuery, function (data) {
-            res.json(data);
-        });
-    } ,
     color: function(req, res) {
-        var connectionQuery = 'SELECT `колірТовару` FROM products';
+        var connectionQuery = 'SELECT DISTINCT `колір товару` FROM products';
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });

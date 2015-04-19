@@ -7,7 +7,7 @@ module.exports.initialize = function(app) {
     app.get('/user/country', user.country);
 
     app.get('/product', product.index);
-    app.get('/product/subcategory', product.subcategory);
+    app.get('/product/category', product.category);
     app.get('/product/color', product.color);
     app.post('/product/result', product.result);
 

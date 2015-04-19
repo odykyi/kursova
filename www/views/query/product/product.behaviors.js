@@ -1,9 +1,6 @@
 var product = new Product();
 $(document).ready(function(){
-    product.showAllProductSubcategories()
+    product.showAllProductCategories()
     product.showAllProductColor()
-
-
     $(".btn").click(product.showProductResult)
-
 });
