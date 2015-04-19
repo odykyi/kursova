@@ -7,17 +7,31 @@ module.exports = {
     result: function(req, res) {
         var ProductCategories = req.body.ProductCategories;
         var ProductСolors = req.body.ProductСolors;
-        var connectionQuery = "SELECT DISTINCT `код товару`," +
-            "  `назва товару`,                 " +
-            "  `розмір товару` ,               " +
-            "  `вартість товару`,              " +
-            "  `колір товару` ,                " +
-            "  `сезон товару` ,                " +
-            "  `кількість проданих одиниць товару`, " +
-            "  `категорія товару`                   " +
-            "  FROM products                        " +
-            "  WHERE `колір товару` = '" + ProductСolors + "'" +
-            "  AND `категорія товару` = '" + ProductCategories + "'";
+        var connectionQuery = "SELECT DISTINCT									"+
+            "  products.`колір товару`,                                         "+
+            "  products.`код товару` 	,                                       "+
+            "  products.`назва товару`,                                         "+
+            "  products.`розмір товару`,                                        "+
+            "  products.`вартість товару`,                                      "+
+            "  products.`колір товару`,                                         "+
+            "  products.`сезон товару`,                                         "+
+            "  products.`кількість проданих одиниць товару`,                    "+
+            "  categories.`назва категорії`                                     "+
+            "FROM                                                               "+
+            "  products                                                         "+
+            "  INNER JOIN categories                                            "+
+            "  ON products.`категорія товару` = categories.`назва категорії`    "+
+            "WHERE                                                              "+
+            "  products.`категорія товару`=  '" + ProductCategories  + "'" +
+            "  AND products.`колір товару` = '" + ProductСolors  + "'";
+
+
+
+
+
+
+
+
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
             console.log(data);

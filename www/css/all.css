@@ -19,15 +19,17 @@ table{
 .navbar-brand {
     padding: 0;
 }
-.navbar-right p {
-
+.navbar-right  {
     display: block;
-    background-image: url(/img/repair-database.png);
-    width: 200px;
+    background-image: url(/img/repair-database.png)!important;
+    width: 55px;
     height: 100%;
     background-position: center;
-    background-size: 72%;
+    background-size: 84%;
     background-repeat: no-repeat;
+}
+.navbar-right  .dropdown-toggle{
+    background-color: transparent!important;
 }
 .navbar-brand div{
     display: block;
@@ -37,4 +39,7 @@ table{
     background-position: center;
     background-size: 72%;
     background-repeat: no-repeat;
+}
+footer navbar{
+    margin: 0;
 }

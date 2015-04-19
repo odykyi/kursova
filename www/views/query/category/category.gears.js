@@ -1,15 +1,15 @@
 var script = new Script();
-function Product () {
-    this.showProductResult = function (){
+function Category () {
+    this.showCategoryResult = function (){
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            ProductCategories: $('#ProductCategories').val(),
-            ProductСolors: $('#ProductСolors').val()
+            CategoryDelivery: $('#CategoryDelivery').val(),
+            CategorySeazon: $('#CategorySeazon').val()
         };
         $.ajax({
             method: "POST",
-            url: "/product/result",
+            url: "/category/result",
             data: data,
             complete: function(data){
                 if(data.status !== 500){
@@ -24,38 +24,38 @@ function Product () {
             }
         });
     }
-    this.showAllProductCategories = function (){
+    this.showAllCategoryDelivery = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/product/category",
+            url: "/category/delivery",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{категорія товару}}</option>" +
+                        "<option>{{спосіб доставки замовлення}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#ProductCategories').append(rendered);
+                    $('#CategoryDelivery').append(rendered);
                 }
             }
         });
     }
-    this.showAllProductColor = function (){
+    this.showAllCategorySeazon = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/product/color",
+            url: "/category/seazon",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{колір товару}}</option>" +
+                        "<option>{{сезон товару}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#ProductСolors').append(rendered);
+                    $('#CategorySeazon').append(rendered);
                 }
             }
         });

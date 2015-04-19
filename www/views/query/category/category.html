@@ -2,8 +2,8 @@
 <html>
 <head lang="en">
     <link rel="import" href="/views/external/import.html">
-    <script src="/views/query/product/product.gears.js"></script>
-    <script src="/views/query/product/product.behaviors.js"></script>
+    <script src="/views/query/category/category.gears.js"></script>
+    <script src="/views/query/category/category.behaviors.js"></script>
 </head>
 <body>
 <div id="header"></div>
@@ -14,21 +14,21 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        Запит 5. Вивести інформацію про товар (код товару, назва товару,
-                        розмір товару, вартість товару, колір товару, сезон товару,
-                        кількість проданих одиниць товару, категорія товару),
-                        який належить до певної категорії і має певний колір.
+                        Запит 3. Вивести інформацію про категорії товарів(назва категорії,
+                        кількість товарів в категорії), певного сезону (літо, зима, осінь, весна),
+                        які були замовлені вказаним способом доставки
+                        (доставка кур’єром, самовивіз, доставка поштою).
                     </h3>
                 </div>
                 <div class="panel-body">
                     <fieldset>
                         <div class="form-group">
-                            <label for="ProductCategories">Країна покупця</label>
-                            <select class="form-control" id="ProductCategories"></select>
+                            <label for="ProductCategories">CategoryDelivery</label>
+                            <select class="form-control" id="CategoryDelivery"></select>
                         </div>
                         <div class="form-group">
-                            <label for="ProductСolors">Кількість замовлень</label>
-                            <select class="form-control" id="ProductСolors"></select>
+                            <label for="ProductСolors">CategorySeazon</label>
+                            <select class="form-control" id="CategorySeazon"></select>
                         </div>
                         <button type="button" class="btn btn-default">Виконати запит 5</button>
                     </fieldset>
