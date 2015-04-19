@@ -12,4 +12,29 @@ body {
 table{
     widtd: 1280px;
 }
+.navbar-collapse h3{
+    padding:0;
+    margin: 0;
+}
+.navbar-brand {
+    padding: 0;
+}
+.navbar-right p {
 
+    display: block;
+    background-image: url(/img/repair-database.png);
+    width: 200px;
+    height: 100%;
+    background-position: center;
+    background-size: 72%;
+    background-repeat: no-repeat;
+}
+.navbar-brand div{
+    display: block;
+    background-image: url(/img/eCommerce-logo.jpg);
+    width: 200px;
+    height: 100%;
+    background-position: center;
+    background-size: 72%;
+    background-repeat: no-repeat;
+}
