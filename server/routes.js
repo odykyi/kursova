@@ -1,7 +1,22 @@
 var user = require('./user/user');
 var product = require('./product/product');
+var index  = "../www/index";
+var query  = "../www/views/query";
+var edit  = "../www/views/edit";
 
 module.exports.initialize = function(app) {
+
+
+
+    app.get('/', function(req, res){
+        res.render(index);
+    });
+    app.get('/query', function(req, res){
+        res.render(query);
+    });
+    app.get('/edit', function(req, res){
+        res.render(edit);
+    });
 
     app.get('/user', user.index);
     app.get('/user/country', user.country);

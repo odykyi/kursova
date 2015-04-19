@@ -1,30 +1,22 @@
+var script = new Script();
 function Product () {
     this.showProductResult = function (){
         var that = this;
-//        $("#jsontotable").find("table").remove();
+        $("#jsontotable").find("table").remove();
         var data = {
             ProductCategories: $('#ProductCategories').val(),
             ProductСolors: $('#ProductСolors').val()
         };
-
         $.ajax({
             method: "POST",
-            url: "product/result",
+            url: "/product/result",
             data: data,
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     console.log(data);
-
-
-                    $("#jsontotable").dynatable({
-                        dataset: {
-                            records: data
-                        }
-                    });
-
-//                    $.jsontotable(data, { id: '#', className: 'table table-hover table-bordered' });
+                    script.buildHtmlTable(data);
                 }
             },
             error: function (data){

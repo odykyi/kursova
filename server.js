@@ -25,10 +25,7 @@ app.use('/bower_components',express.static(path.join(__dirname, 'bower_component
 //    database : 'eCommerce'
 //});
 
-var index  = "../www/index";
-app.get('/', function(req, res){
-    res.render(index);
-});
+
 
 routes.initialize(app);
 

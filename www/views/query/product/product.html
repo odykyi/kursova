@@ -2,16 +2,8 @@
 <html>
 <head lang="en">
     <link rel="import" href="/views/external/import.html">
-
     <script src="/views/query/product/product.gears.js"></script>
     <script src="/views/query/product/product.behaviors.js"></script>
-
-    <style>
-        table{
-            margin: 50px;
-            width: 1280px;
-        }
-    </style>
 </head>
 <body>
 <div class="container">
@@ -45,23 +37,8 @@
                 </div>
                 <div class="panel-body">
                     <fieldset>
-                        <div class="form-group">
-                            <table id="jsontotable" class="table-responsive">
-                                <thead>
-                                <th>вартість товару</th>
-                                <th>категорія товару</th>
-                                <th>код товару</th>
-                                <th>колір товару</th>
-                                <th>кількість проданих одиниць товару</th>
-                                <th>назва товару</th>
-                                <th>розмір товару</th>
-                                <th>сезон товару</th>
-
-
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+                        <div class="form-group table-responsive">
+                            <table id="excelDataTable" class="table table-hover table-bordered"></table>
                         </div>
                     </fieldset>
                 </div>
@@ -69,6 +46,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>
