@@ -1,15 +1,15 @@
 var script = new Script();
-function Manager () {
-    this.showManagerResult = function (){
+function Complaint () {
+    this.showComplaintResult = function (){
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            ManagerStatus: $('#ManagerStatus').val(),
-            ManagerExp: $('#ManagerExp').val()
+            ComplaintStatus: $('#ComplaintStatus').val(),
+            ComplaintYear: $('#ComplaintYear').val()
         };
         $.ajax({
             method: "POST",
-            url: "/manager/result",
+            url: "/complaint/result",
             data: data,
             complete: function(data){
                 if(data.status !== 500){
@@ -24,38 +24,38 @@ function Manager () {
             }
         });
     }
-    this.showAllManagerStatus = function (){
+    this.showAllComplaintStatus = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/manager/status",
+            url: "/complaint/status",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{статус замовлення}}</option>" +
+                        "<option>{{статус скарги}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#ManagerStatus').append(rendered);
+                    $('#ComplaintStatus').append(rendered);
                 }
             }
         });
     }
-    this.showAllManagerExp = function (){
+    this.showAllComplaintYear = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/manager/exp",
+            url: "/complaint/year",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{стаж менеджера}}</option>" +
+                        "<option>{{вік покупця}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#ManagerExp').append(rendered);
+                    $('#ComplaintYear').append(rendered);
                 }
             }
         });

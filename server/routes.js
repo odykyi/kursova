@@ -3,6 +3,7 @@ var order = require('./order/order');
 var category = require('./category/category');
 var manager = require('./manager/manager');
 var product = require('./product/product');
+var complaint = require('./complaint/complaint');
 var index  = "../www/index";
 var query  = "../www/views/query";
 var edit  = "../www/views/edit";
@@ -47,6 +48,12 @@ module.exports.initialize = function(app) {
     app.get('/product/category', product.category);
     app.get('/product/color', product.color);
     app.post('/product/result', product.result);
+
+
+    app.get('/complaint', complaint.index);
+    app.get('/complaint/status', complaint.status);
+    app.get('/complaint/year', complaint.year);
+    app.post('/complaint/result', complaint.result);
 
 
 

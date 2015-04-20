@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel="import" href="/views/external/import.html">
+    <script src="/views/query/complaint/complaint.gears.js"></script>
+    <script src="/views/query/complaint/complaint.behaviors.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Запит 6. Вивести інформацію про скарги покупців
+                        (тема скарги,  скарга,  номер скарги покупця,
+                        ПІБ покупця, що скаржився, статус скарги),
+                        які мали певний статус (відкликані, оскаржені, задоволені, розглядач скарги),
+                        а покупець був певного віку.
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset class="row">
+                        <div class="form-group col-md-4">
+                            <label for="ComplaintStatus">Статус скарги</label>
+                            <select class="form-control" id="ComplaintStatus"></select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ComplaintYear">Вік покупця</label>
+                            <select class="form-control" id="ComplaintYear"></select>
+                        </div>
+                        <button type="button" class="btn btn-default col-md-2">Виконати запит 6</button>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Звіт запиту 6.</h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group table-responsive">
+                            <table id="excelDataTable" class="table table-hover table-bordered"></table>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+
+</body>
+</html>
