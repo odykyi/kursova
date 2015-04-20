@@ -1,21 +1,30 @@
+var script = new Script();
 function User () {
-    this.showAllUsers = function (){
+    this.showUserResult = function (){
         var that = this;
+        $("#excelDataTable").find("tbody").remove();
+        var data = {
+            ProductCategories: $('#UserCountry').val(),
+            ProductСolors: $('#UserOrder').val()
+        };
         $.ajax({
-            method: "GET",
-            url: "/users",
+            method: "POST",
+            url: "/user/result",
+            data: data,
             complete: function(data){
-                data = data.responseJSON;
-                data = JSON.parse(data);
-                $.get('/js/templates/selectRenderHtml.html', function(template) {
-                    var rendered = Mustache.render(template, data);
-                    $('ul').append(rendered)
-                });
+                if(data.status !== 500){
+                    data = data.responseJSON;
+                    data = JSON.parse(data);
+                    console.log(data);
+                    script.buildHtmlTable(data);
+                }
+            },
+            error: function (data){
+                alert("ERROR " + data);
             }
-        })
+        });
     }
-
-    this.showAllUserCountries = function (){
+    this.showAllUserCountry = function (){
         var that = this;
         $.ajax({
             method: "GET",
@@ -25,17 +34,30 @@ function User () {
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{країнаПокупця}}</option>" +
+                        "<option>{{категорія товару}}</option>" +
                         "{{/.}}";
-//                  $.get('/templates/userTemp1.html', function(template) {
                     var rendered = Mustache.render(template, data);
-                    $('#countryUser').append(rendered)
-//                  });
+                    $('#UserCountry').append(rendered);
+                }
+            }
+        });
+    }
+    this.showAllUserOrder = function (){
+        var that = this;
+        $.ajax({
+            method: "GET",
+            url: "/user/order",
+            complete: function(data){
+                if(data.status !== 500){
+                    data = data.responseJSON;
+                    data = JSON.parse(data);
+                    var template = "{{#.}}" +
+                        "<option>{{колір товару}}</option>" +
+                        "{{/.}}";
+                    var rendered = Mustache.render(template, data);
+                    $('#UserOrder').append(rendered);
                 }
             }
         });
     }
 }
-
-
-

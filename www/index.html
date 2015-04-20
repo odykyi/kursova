@@ -1,21 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="en">
     <link rel="import" href="/views/external/import.html">
 </head>
 <body>
 <div id="header"></div>
-
-<div class="container">
-
-    <div class="row">
-        <a class="btn btn-success col-md-4" href="/query"><h1>Виконати Запити</h1></a>
-        <div class="col-md-4 text-center"><h1> | </h1></div>
-        <a class="btn btn-success col-md-4" href="/edit"><h1>Редагувати Дані</h1></a>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row buttonIndex">
+            <div class="col-md-6">
+                <a href="/user" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    Запит 1. Вивести інформацію про покупців
+                    (ПІБ покупця, стать покупця, країна покупця, місто покупця,
+                    вік покупця, домашня адреса покупця,
+                    контактний номер телефону покупця, логін покупця),
+                    які проживають в певній країні, та зробили певну кількість замовлень.
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="button" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                    Запит 2. Вивести інформацію про замовлення
+                    (номер замовлення, ПІБ покупця, що замовив, замовлений товар,
+                    статус замовлення, загальна вартість замовлення,
+                    спосіб доставки замовлення, менеджер, який оформляє замовлення) тих покупців,
+                    що здійснили не менше певної кількості замовлень, та покупець був певної статі.
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="/category" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                    Запит 3. Вивести інформацію про категорії товарів
+                    (назва категорії, кількість товарів в категорії),
+                    певного сезону (літо, зима, осінь, весна),
+                    які були замовлені вказаним способом доставки
+                    (доставка кур’єром, самовивіз, доставка поштою).
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="button" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+                    Запит 4. Вивести інформацію про менеджерів
+                    (ПІБ менеджера, стать менеджера, країна менеджера,
+                    місто, в якому працює менеджер, стаж менеджера,
+                    контактний номер телефону менеджера, вік менеджера, графік роботи менеджера),
+                    за вказаним стажем, які оформили замовлення з заданим статусом замовлення.
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="/product" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+                    Запит 5. Вивести інформацію про товар
+                    (код товару, назва товару, розмір товару, вартість товару,
+                    колір товару, сезон товару, кількість проданих одиниць товару,
+                    категорія товару), який належить до певної категорії і має певний колір.
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="button" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                    Запит 6. Вивести інформацію про скарги покупців
+                    (тема скарги,  скарга,  номер скарги покупця, ПІБ покупця,
+                    що скаржився, статус скарги),
+                    які мали певний статус (відкликані, оскаржені, задоволені,
+                    розглядач скарги), а покупець був певного віку.
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="button" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                    Запит 7. Вивести інформацію про акційні товари
+                    (назва акційного товару, ціна акційного товару,
+                    дата оголошення акції, дата закінчення акції, номер акції)
+                    за вказаним кольором товару, та за вказаною вартістю товару.
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="button" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                    Запит 8. Вивести інформацію про бажання покупців
+                    (назва товару в списку бажань, ціна товару в списку бажань,
+                    кількість товарів в списку бажань, логін покупця, що додав товар до списку бажань,
+                    дата оформлення бажання, менеджер, що розглядає бажання),
+                    за вказаним містом покупця, і покупці були старшого віку ніж вказаний.
+                </a>
+            </div>
+        </div>
     </div>
-
 </div>
 <div id="footer"></div>
-
 </body>
 </html>

@@ -8,6 +8,11 @@ body {
 .buttonIndex a{
     width: 100%;
     margin: 2%;
+    white-space: normal;
+    height: auto;
+    width: 100%;
+    margin: 2%;
+    font-size: 14px;
 }
 table{
     widtd: 1280px;
@@ -39,6 +44,12 @@ table{
     background-position: center;
     background-size: 72%;
     background-repeat: no-repeat;
+}
+.btn{
+    height: 60px;
+}
+.jumbotron{
+    padding:0;
 }
 footer navbar{
     margin: 0;

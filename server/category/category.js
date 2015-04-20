@@ -10,7 +10,7 @@ module.exports = {
         var connectionQuery = "SELECT DISTINCT							" +
             "  categories.`назва категорії`,                                " +
             "categories.`кількість товарів в категорії`                      " +
-        "FROM categories                                                " +
+            "FROM categories                                                " +
             "  INNER JOIN products                                          " +
             "ON products.`категорія товару` = categories.`назва категорії`  " +
             "  INNER JOIN orders                                            " +

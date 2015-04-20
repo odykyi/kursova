@@ -1,61 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title>data</title>
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/jquery.jsontable/jquery.jsontable.js"></script>
-    <script src="../bower_components/mustache/mustache.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/views/user/user.gears.js"></script>
-    <script src="/views/user/user.behaviors.js"></script>
-
-
-    <style>
-        table{
-            margin: 50px;
-            width: 1280px;
-        }
-    </style>
+    <link rel="import" href="/views/external/import.html">
+    <script src="/views/query/product/product.gears.js"></script>
+    <script src="/views/query/product/product.behaviors.js"></script>
 </head>
 <body>
-<!--<script>-->
-    <!--$( document ).ready(function() {-->
-        <!--var val = $("#data").val();-->
-        <!--var datas = JSON.parse( val );-->
-        <!--$.jsontotable(datas, { id: '#jsontotable', className: 'table table-hover table-bordered' });-->
-    <!--});-->
-<!--</script>-->
+<div id="header"></div>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="text-center">
-                <h1>Покупці</h1>
-            </div>
-
-
-
-
-
-            <form class="form-inline">
-                <div class="form-group">
-                    <label class="sr-only" for="exampleInputEmail3">Країна покупця</label>
-                    <select class="form-control" id="countryUser">
-                    </select>                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="exampleInputPassword3">Кількість замовлень</label>
-                    <select class="form-control" id="countOrder">
-                    </select>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Запит 1. Вивести інформацію про покупців
+                        (ПІБ покупця, стать покупця, країна покупця, місто покупця,
+                        вік покупця, домашня адреса покупця, контактний номер телефону покупця, логін покупця),
+                        які проживають в певній країні, та зробили певну кількість замовлень.
+                    </h3>
                 </div>
-
-                <button type="button" class="btn btn-default">Sign in</button>
-            </form>
+                <div class="panel-body">
+                    <fieldset class="row">
+                        <div class="form-group col-md-4">
+                            <label for="ProductCategories">Країна покупця</label>
+                            <select class="form-control" id="ProductCategories"></select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ProductСolors">Кількість замовлень</label>
+                            <select class="form-control" id="ProductСolors"></select>
+                        </div>
+                        <button type="button" class="btn btn-default col-md-2">Виконати запит 1</button>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Звіт запиту 1.</h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group table-responsive">
+                            <table id="excelDataTable" class="table table-hover table-bordered"></table>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
+<div id="footer"></div>
 
 </body>
 </html>
