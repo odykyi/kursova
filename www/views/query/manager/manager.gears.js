@@ -1,15 +1,15 @@
 var script = new Script();
-function User () {
-    this.showUserResult = function (){
+function Manager () {
+    this.showManagerResult = function (){
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            UserCountry: $('#UserCountry').val(),
-            UserOrder: $('#UserOrder').val()
+            ManagerStatus: $('#ManagerStatus').val(),
+            ManagerExp: $('#ManagerExp').val()
         };
         $.ajax({
             method: "POST",
-            url: "/user/result",
+            url: "/manager/result",
             data: data,
             complete: function(data){
                 if(data.status !== 500){
@@ -24,38 +24,38 @@ function User () {
             }
         });
     }
-    this.showAllUserCountry = function (){
+    this.showAllManagerStatus = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/user/country",
+            url: "/manager/status",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{країна покупця}}</option>" +
+                        "<option>{{статус замовлення}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#UserCountry').append(rendered);
+                    $('#ManagerStatus').append(rendered);
                 }
             }
         });
     }
-    this.showAllUserOrder = function (){
+    this.showAllManagerExp = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/user/order",
+            url: "/manager/exp",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{кількість проданих одиниць товару}}</option>" +
+                        "<option>{{стаж менеджера}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#UserOrder').append(rendered);
+                    $('#ManagerExp').append(rendered);
                 }
             }
         });

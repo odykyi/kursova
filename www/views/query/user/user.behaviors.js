@@ -1,6 +1,6 @@
-var product = new Product();
+var user = new User();
 $(document).ready(function(){
-    product.showAllProductCategories()
-    product.showAllProductColor()
-    $(".btn").click(product.showProductResult)
+    user.showAllUserCountry()
+    user.showAllUserOrder()
+    $(".btn").click(user.showUserResult)
 });

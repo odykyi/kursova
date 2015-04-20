@@ -1,15 +1,15 @@
 var script = new Script();
-function User () {
-    this.showUserResult = function (){
+function Order () {
+    this.showOrderResult = function (){
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            UserCountry: $('#UserCountry').val(),
-            UserOrder: $('#UserOrder').val()
+            OrderCount: $('#OrderCount').val(),
+            OrderSex: $('#OrderSex').val()
         };
         $.ajax({
             method: "POST",
-            url: "/user/result",
+            url: "/order/result",
             data: data,
             complete: function(data){
                 if(data.status !== 500){
@@ -24,29 +24,11 @@ function User () {
             }
         });
     }
-    this.showAllUserCountry = function (){
+    this.showAllOrderCount = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/user/country",
-            complete: function(data){
-                if(data.status !== 500){
-                    data = data.responseJSON;
-                    data = JSON.parse(data);
-                    var template = "{{#.}}" +
-                        "<option>{{країна покупця}}</option>" +
-                        "{{/.}}";
-                    var rendered = Mustache.render(template, data);
-                    $('#UserCountry').append(rendered);
-                }
-            }
-        });
-    }
-    this.showAllUserOrder = function (){
-        var that = this;
-        $.ajax({
-            method: "GET",
-            url: "/user/order",
+            url: "/order/count",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
@@ -55,7 +37,25 @@ function User () {
                         "<option>{{кількість проданих одиниць товару}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#UserOrder').append(rendered);
+                    $('#OrderCount').append(rendered);
+                }
+            }
+        });
+    }
+    this.showAllOrderSex = function (){
+        var that = this;
+        $.ajax({
+            method: "GET",
+            url: "/order/sex",
+            complete: function(data){
+                if(data.status !== 500){
+                    data = data.responseJSON;
+                    data = JSON.parse(data);
+                    var template = "{{#.}}" +
+                        "<option>{{стать покупця}}</option>" +
+                        "{{/.}}";
+                    var rendered = Mustache.render(template, data);
+                    $('#OrderSex').append(rendered);
                 }
             }
         });
