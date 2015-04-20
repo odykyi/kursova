@@ -42,6 +42,8 @@ function Manager () {
             }
         });
     }
+
+
     this.showAllManagerExp = function (){
         var that = this;
         $.ajax({
