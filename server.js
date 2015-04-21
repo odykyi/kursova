@@ -18,15 +18,6 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'www')));
 app.use('/bower_components',express.static(path.join(__dirname, 'bower_components')));
 
-//var connection = mysql.createConnection({
-//    host     : '127.0.0.1',
-//    user     : 'root',
-//    password : '',
-//    database : 'eCommerce'
-//});
-
-
-
 routes.initialize(app);
 
 http.createServer(app).listen(app.get('port'), function(){

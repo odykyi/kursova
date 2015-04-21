@@ -8,7 +8,7 @@ module.exports = {
         var UserCountry = req.body.UserCountry;
         var UserOrder = req.body.UserOrder;
         var connectionQuery = "SELECT DISTINCT	"+
-        "  users.*                                                      "+
+            "  users.*                                                      "+
             "FROM                                                           "+
             "  users                                                        "+
             "  INNER JOIN orders                                            "+
@@ -25,7 +25,7 @@ module.exports = {
         });
     },
     country: function(req, res) {
-        var connectionQuery = 'SELECT DISTINCT `країна покупця` FROM users';
+        var connectionQuery = 'SELECT DISTINCT users.`країна покупця` FROM users';
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });

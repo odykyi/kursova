@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
     host     : '127.0.0.1',
     user     : 'root',
     password : '',
-    database : 'eCommerce'
+    database : 'ecommerce'
 });
 connection.connect();
 module.exports.dbQuery = function(connectionQuery, callback) {
@@ -18,6 +18,7 @@ module.exports.dbQuery = function(connectionQuery, callback) {
             }
         } else{
             console.error(connectionQuery);
+            console.error(err);
             console.error('err connection.query DB Query.');
         }
     });

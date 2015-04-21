@@ -4,6 +4,8 @@ var category = require('./category/category');
 var manager = require('./manager/manager');
 var product = require('./product/product');
 var complaint = require('./complaint/complaint');
+var discount = require('./discount/discount');
+
 var index  = "../www/index";
 var query  = "../www/views/query";
 var edit  = "../www/views/edit";
@@ -42,18 +44,20 @@ module.exports.initialize = function(app) {
     app.get('/manager/exp', manager.exp);
     app.post('/manager/result', manager.result);
 
-
-
     app.get('/product', product.index);
     app.get('/product/category', product.category);
     app.get('/product/color', product.color);
     app.post('/product/result', product.result);
 
-
     app.get('/complaint', complaint.index);
     app.get('/complaint/status', complaint.status);
     app.get('/complaint/year', complaint.year);
     app.post('/complaint/result', complaint.result);
+
+    app.get('/discount', discount.index);
+    app.get('/discount/color', discount.color);
+    app.get('/discount/price', discount.price);
+    app.post('/discount/result', discount.result);
 
 
 

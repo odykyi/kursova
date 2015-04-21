@@ -1,5 +1,5 @@
 ﻿-- Скрипт сгенерирован Devart dbForge Studio for MySQL, Версия 3.10.227.1
--- Дата: 21.04.2015 2:40:50
+-- Дата: 21.04.2015 19:47:40
 -- Версия сервера: 5.5.25
 -- Версия клиента: 4.1
 
@@ -209,12 +209,19 @@ INSERT INTO ecommerce.complaints VALUES('93254291', 'синя сорочка п�
 -- 
 -- Вывод данных для таблицы ecommerce.discounts
 -- 
--- Таблица не содержит данных
+INSERT INTO ecommerce.discounts VALUES('534354', 'Сорочка Piazza Italia 70082', '150', '2015-12-03', '2015-12-04');
+INSERT INTO ecommerce.discounts VALUES('742724', 'Шорти Kelme 78406 M Navy', '270', '2015-10-10', '2015-11-23');
+INSERT INTO ecommerce.discounts VALUES('245643', 'Футболка Piazza Italia 69597', '367', '2015-10-20', '2016-01-25');
+INSERT INTO ecommerce.discounts VALUES('853834', 'Футболка Mexx H5GST022-101', '179', '2015-03-20', '2016-04-14');
+INSERT INTO ecommerce.discounts VALUES('325256', 'Сорочка LTB Crowes 1115-49013-7862/976', '699', '2015-05-10', '2016-07-18');
+INSERT INTO ecommerce.discounts VALUES('230863', 'Піджак Petrol Industries PI M-FW13-JA108 985', '1100', '2015-01-20', '2015-01-25');
+INSERT INTO ecommerce.discounts VALUES('190093', 'Куртка No Excess NX 178', '3700', '2015-07-23', '2015-08-23');
+INSERT INTO ecommerce.discounts VALUES('794093', 'Футболка Jack & Jones 12083150', '137', '2015-10-10', '2015-12-15');
+
 
 -- 
 -- Вывод данных для таблицы ecommerce.managers
 -- 
-INSERT INTO ecommerce.managers VALUES('', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO ecommerce.managers VALUES('Кенюк Вікторія Володимирівна', 'жіноча', 'Україна', 'Вінниця', '6', '09782995431', '37', '10:30-18:30');
 INSERT INTO ecommerce.managers VALUES('Клим`юк Олександра Анатоліївна', 'жіноча', 'Україна', 'Луцьк', '1', '09628477440', '32', '12:00-18:00');
 INSERT INTO ecommerce.managers VALUES('Мицканюк Василь Іванович', 'чоловіча', 'Україна', 'Львів', '4', '09952469901', '31', '08:00-16:00');
@@ -285,7 +292,6 @@ INSERT INTO ecommerce.products VALUES('J43013T', 'Куртка Nautica 3MY.XL', 
 INSERT INTO ecommerce.products VALUES('P2426-222-323', 'Сорочка Nautica W41227T.4IS', 'L', '1780', 'темно-синій', 'весна', '0', 'Сорочки');
 INSERT INTO ecommerce.products VALUES('PM200983L144', 'Джинси Pepe Jeans Colville', '34-34', '999', 'синій', 'осінь', '1', 'Джинси');
 INSERT INTO ecommerce.products VALUES('R1978642', 'Піджак Petrol Industries PI M-FW13-JA108 985', 'S', '1349', 'сірий', 'весна', '0', 'Піджаки');
-INSERT INTO ecommerce.products VALUES('код товару', 'назва товару', 'розмір товару', 'вартість товару', 'колір товару', 'сезон товару', 'кількість проданих одиниць товару', 'категорія товару');
 
 
 -- 

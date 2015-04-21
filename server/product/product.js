@@ -24,14 +24,6 @@ module.exports = {
             "WHERE                                                              "+
             "  products.`категорія товару`=  '" + ProductCategories  + "'" +
             "  AND products.`колір товару` = '" + ProductСolors  + "'";
-
-
-
-
-
-
-
-
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
             console.log(data);
