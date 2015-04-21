@@ -8,14 +8,13 @@ module.exports = {
         var CategoryDelivery = req.body.CategoryDelivery;
         var CategorySeazon = req.body.CategorySeazon;
         var connectionQuery = "SELECT DISTINCT							" +
-            "  categories.`назва категорії`,                                " +
-            "categories.`кількість товарів в категорії`                      " +
+            "  categories.*                                " +
             "FROM categories                                                " +
             "  INNER JOIN products                                          " +
             "ON products.`категорія товару` = categories.`назва категорії`  " +
             "  INNER JOIN orders                                            " +
             "ON orders.`замовлений товар` = products.`назва товару`         " +
-            "WHERE products.`сезон товару` = '" + CategorySeazon + "'";
+            "WHERE products.`сезон товару` = '" + CategorySeazon + "'"+
             "AND orders.`спосіб доставки замовлення` = '" + CategoryDelivery + "'";
 
         dbController.dbQuery(connectionQuery, function (data) {

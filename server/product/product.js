@@ -8,15 +8,7 @@ module.exports = {
         var ProductCategories = req.body.ProductCategories;
         var ProductСolors = req.body.ProductСolors;
         var connectionQuery = "SELECT DISTINCT									"+
-            "  products.`колір товару`,                                         "+
-            "  products.`код товару` 	,                                       "+
-            "  products.`назва товару`,                                         "+
-            "  products.`розмір товару`,                                        "+
-            "  products.`вартість товару`,                                      "+
-            "  products.`колір товару`,                                         "+
-            "  products.`сезон товару`,                                         "+
-            "  products.`кількість проданих одиниць товару`,                    "+
-            "  categories.`назва категорії`                                     "+
+            "  products.*                                                       "+
             "FROM                                                               "+
             "  products                                                         "+
             "  INNER JOIN categories                                            "+
