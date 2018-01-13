@@ -1,7 +1,6 @@
 {
   "name": "kursovaDB",
   "version": "0.0.1",
-  "homepage": "https://github.com/san4osq/kursova",
   "authors": [],
   "description": "kursova description",
   "main": "server.js",
