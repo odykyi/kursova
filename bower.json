@@ -2,9 +2,7 @@
   "name": "kursovaDB",
   "version": "0.0.1",
   "homepage": "https://github.com/san4osq/kursova",
-  "authors": [
-    "san4osq <san4osq@ya.ru>"
-  ],
+  "authors": [],
   "description": "kursova description",
   "main": "server.js",
   "license": "MIT",
