@@ -9,3 +9,6 @@ npm start
 
 
 then open http://localhost:3000
+
+if you can't run project, try to create issue https://github.com/orgjscom/kursova/issues
+and I will help you
