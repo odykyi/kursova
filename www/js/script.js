@@ -9,10 +9,7 @@ function Script(){
         for (var i = 0 ; i < myList.length ; i++) {
             var row$ = $('<tr/>');
             for (var colIndex = 0 ; colIndex < columns.length ; colIndex++) {
-                var cellValue = myList[i][columns[colIndex]];
-                if (cellValue === null) {
-                    cellValue = "";
-                }
+                var cellValue = myList[i][columns[colIndex]] || '';
                 row$.append($('<td/>').html(cellValue));
             }
             $("#excelDataTable").append(row$);
